@@ -8,10 +8,11 @@
   },
   "favicon": "/favicon.svg",
   "navigation": {
-    "tabs": [
+    "anchors": [
       {
-        "tab": "Guides",
-        "groups": [
+        "anchor": "Guides",
+        "icon": "book-open",
+        "pages": [
           {
             "group": "Get Started",
             "pages": ["introduction"]
@@ -19,10 +20,12 @@
         ]
       },
       {
-        "tab": "API Reference",
+        "anchor": "API Reference",
+        "icon": "brackets-curly",
         "versions": [
           {
             "version": "2025-01-01",
+            "default": true,
             "groups": [
               {
                 "group": "Welcome",
@@ -52,43 +55,17 @@
           },
           {
             "version": "2024-05-01",
-            "openapi": "api-reference/2024-05-01/2024-05-01.json",
-            "groups": [
-              {
-                "group": "Welcome",
-                "pages": ["api-reference/introduction"]
-              },
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/2024-05-01/lastmile/get_store_info",
-                  "api-reference/2024-05-01/lastmile/get_booking_details",
-                  "api-reference/2024-05-01/lastmile/create_estimate",
-                  "api-reference/2024-05-01/lastmile/create_booking",
-                  "api-reference/2024-05-01/lastmile/cancel_booking"
-                ]
-              }
-            ]
+            "openapi": {
+              "source": "/api-reference/2024-05-01/api.json",
+              "directory": "api-reference/2024-05-01"
+            }
           },
           {
-            "version": "v2023-11-01",
-            "openapi": "api-reference/2023-11-01/2023-11-01.json",
-            "groups": [
-              {
-                "group": "Welcome",
-                "pages": ["api-reference/introduction"]
-              },
-              {
-                "group": "API Documentation",
-                "pages": [
-                  "api-reference/2023-11-01/lastmile/get_store_info",
-                  "api-reference/2023-11-01/lastmile/get_booking_details",
-                  "api-reference/2023-11-01/lastmile/create_estimate",
-                  "api-reference/2023-11-01/lastmile/create_booking",
-                  "api-reference/2023-11-01/lastmile/cancel_booking"
-                ]
-              }
-            ]
+            "version": "2023-11-01",
+            "openapi": {
+              "source": "/api-reference/2023-11-01/api.json",
+              "directory": "api-reference/2023-11-01"
+            }
           }
         ]
       }
