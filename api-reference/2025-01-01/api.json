@@ -1,0 +1,1031 @@
+{
+  "openapi": "3.1.0",
+  "info": {
+    "title": "Lastmile API",
+    "version": "2025-01-01"
+  },
+  "paths": {
+    "/create_booking": {
+      "post": {
+        "summary": "Create a booking",
+        "tags": ["Bookings"],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "201": {
+            "description": "booking created",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/booking_response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "invalid body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/booking_request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_booking_details/{id}": {
+      "get": {
+        "summary": "Retrieve a booking",
+        "tags": ["Bookings"],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique ID of the booking.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "booking found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/booking_response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/cancel_booking": {
+      "post": {
+        "summary": "Cancels a booking",
+        "tags": ["Bookings"],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "204": {
+            "description": "booking cancelled"
+          },
+          "422": {
+            "description": "failed to cancel booking"
+          },
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/cancel_request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/create_estimate": {
+      "post": {
+        "summary": "Create an estimate",
+        "tags": ["Estimates"],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "parameters": [],
+        "responses": {
+          "200": {
+            "description": "success",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/estimate_response"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "422": {
+            "description": "invalid body",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        },
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/estimate_request"
+              }
+            }
+          }
+        }
+      }
+    },
+    "/get_store_info/{id}": {
+      "get": {
+        "summary": "List store information",
+        "tags": ["Stores"],
+        "security": [
+          {
+            "api_key": []
+          }
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "description": "Unique ID of the store.",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "store found",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/store_info_response"
+                }
+              }
+            }
+          },
+          "400": {
+            "description": "bad request",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "500": {
+            "description": "internal server error",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "invalid or missing credentials",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/error"
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "https://api.staging.delivereasy.co.nz/api/2025-01-01/{partner_name}/",
+      "description": "Sandbox environment, uses fake data, will not incur charges",
+      "variables": {
+        "partner_name": {
+          "default": "demo"
+        }
+      }
+    },
+    {
+      "url": "https://api.delivereasy.co.nz/api/2025-01-01/{partner_name}/",
+      "description": "Production environment, uses real data and incurs charges",
+      "variables": {
+        "partner_name": {
+          "default": "demo"
+        }
+      }
+    }
+  ],
+  "components": {
+    "securitySchemes": {
+      "api_key": {
+        "type": "apiKey",
+        "name": "X-DELIVEREASY-API-KEY",
+        "in": "header"
+      }
+    },
+    "schemas": {
+      "contact_details": {
+        "type": "object",
+        "properties": {
+          "email": {
+            "type": "string",
+            "format": "email"
+          },
+          "full_name": {
+            "type": "string"
+          },
+          "phone_number": {
+            "type": "string"
+          }
+        },
+        "required": ["full_name", "phone_number"],
+        "additionalProperties": false
+      },
+      "address_request_using_street_number_and_street": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "description": "E.g 'Delivereasy Office'"
+          },
+          "subpremise": {
+            "type": "string",
+            "description": "E.g 'Level 1'"
+          },
+          "street_number": {
+            "type": "string",
+            "description": "E.g '79A'"
+          },
+          "street": {
+            "type": "string",
+            "description": "E.g 'Taranaki St'"
+          },
+          "suburb": {
+            "type": "string",
+            "description": "E.g 'Te Aro'"
+          },
+          "city": {
+            "type": "string",
+            "description": "E.g 'Wellington'"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "E.g '6011'"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "E.g '-40.900558'"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "E.g '174.744080'"
+          },
+          "provider_supplied_id": {
+            "type": "string",
+            "description": "The address geocoder's ID for the address."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The name of the address geocoder which the ID corresponds to.",
+            "enum": ["google_maps_platform", "address_finder"]
+          }
+        },
+        "required": [
+          "street_number",
+          "street",
+          "city",
+          "postal_code",
+          "latitude",
+          "longitude"
+        ],
+        "additionalProperties": false
+      },
+      "address_request_using_street_address": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "description": "E.g 'Delivereasy Office'"
+          },
+          "street_address": {
+            "type": "string",
+            "description": "E.g '1/79 Taranaki St'"
+          },
+          "suburb": {
+            "type": "string",
+            "description": "E.g 'Te Aro'"
+          },
+          "city": {
+            "type": "string",
+            "description": "E.g 'Wellington'"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "E.g '6011'"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "E.g '-40.900558'"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "E.g '174.744080'"
+          },
+          "provider_supplied_id": {
+            "type": "string",
+            "description": "The address geocoder's ID for the address."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The name of the address geocoder which the ID corresponds to.",
+            "enum": ["google_maps_platform", "address_finder"]
+          }
+        },
+        "required": [
+          "street_address",
+          "city",
+          "postal_code",
+          "latitude",
+          "longitude"
+        ],
+        "additionalProperties": false
+      },
+      "address_request_using_single_line": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "description": "E.g 'Delivereasy Office'"
+          },
+          "full_address": {
+            "type": "string",
+            "description": "E.g '1/79 Taranaki St, Te Aro, Wellington 6011'"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "E.g '-40.900558'"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "E.g '174.744080'"
+          },
+          "provider_supplied_id": {
+            "type": "string",
+            "description": "The address geocoder's ID for the address."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The name of the address geocoder which the ID corresponds to.",
+            "enum": ["google_maps_platform", "address_finder"]
+          }
+        },
+        "required": ["full_address"],
+        "additionalProperties": false
+      },
+      "address_response": {
+        "type": "object",
+        "properties": {
+          "business_name": {
+            "type": "string",
+            "description": "E.g 'Delivereasy Office'"
+          },
+          "full_address": {
+            "type": "string",
+            "description": "E.g 'Flat 1, 12 Somewhere Avenue, Te Aro 6011'"
+          },
+          "street_address": {
+            "type": "string",
+            "description": "E.g '1/79 Taranaki St'"
+          },
+          "suburb": {
+            "type": "string",
+            "description": "E.g 'Te Aro'"
+          },
+          "city": {
+            "type": "string",
+            "description": "E.g 'Wellington'"
+          },
+          "postal_code": {
+            "type": "string",
+            "description": "E.g '6011'"
+          },
+          "latitude": {
+            "type": "string",
+            "description": "E.g '-40.900558'"
+          },
+          "longitude": {
+            "type": "string",
+            "description": "E.g '174.744080'"
+          },
+          "provider_supplied_id": {
+            "type": "string",
+            "description": "The address geocoder's ID for the address."
+          },
+          "provider": {
+            "type": "string",
+            "description": "The name of the address geocoder which the ID corresponds to.",
+            "enum": ["google_maps_platform", "address_finder"]
+          }
+        },
+        "required": [
+          "full_address",
+          "street_address",
+          "city",
+          "postal_code",
+          "latitude",
+          "longitude"
+        ],
+        "additionalProperties": false
+      },
+      "estimate_request": {
+        "type": "object",
+        "properties": {
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store this booking is for."
+          },
+          "pickup": {
+            "type": "object",
+            "properties": {
+              "requested_pickup_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Requested pickup time in iso8601 format.\nOne of requested_pickup_time, pickup_time_not_before and requested_dropoff_time is required.\n"
+              },
+              "pickup_time_not_before": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The earliest pickup time in iso8601 format."
+              }
+            },
+            "additionalProperties": false
+          },
+          "dropoff": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/address_request_using_street_number_and_street"
+                  },
+                  {
+                    "$ref": "#/components/schemas/address_request_using_street_address"
+                  },
+                  {
+                    "$ref": "#/components/schemas/address_request_using_single_line"
+                  }
+                ]
+              }
+            },
+            "required": ["address"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["partner_store_id", "pickup", "dropoff"]
+      },
+      "estimate_response": {
+        "type": "object",
+        "properties": {
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store this booking is for."
+          },
+          "booking_details": {
+            "type": "object",
+            "properties": {
+              "delivery_fee_in_cents": {
+                "type": "integer",
+                "description": "Total booking cost in cents."
+              },
+              "estimated_pickup_time": {
+                "type": "string",
+                "description": "Estimated pickup time in iso8601 format."
+              },
+              "estimated_dropoff_time": {
+                "type": "string",
+                "description": "Estimated dropoff time in iso8601 format."
+              }
+            },
+            "required": [
+              "delivery_fee_in_cents",
+              "estimated_pickup_time",
+              "estimated_dropoff_time"
+            ],
+            "additionalProperties": false
+          },
+          "pickup": {
+            "type": "object",
+            "properties": {
+              "requested_pickup_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Requested pickup time in iso8601 format.\n"
+              }
+            }
+          },
+          "dropoff": {
+            "type": "object",
+            "properties": {
+              "address": {
+                "$ref": "#/components/schemas/address_response"
+              }
+            },
+            "required": ["address"],
+            "additionalProperties": false
+          }
+        },
+        "required": ["partner_store_id", "booking_details", "pickup", "dropoff"]
+      },
+      "cancel_request": {
+        "type": "object",
+        "properties": {
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store"
+          },
+          "id": {
+            "type": "string",
+            "description": "The ID of the booking to be cancelled"
+          }
+        },
+        "required": ["partner_store_id", "id"]
+      },
+      "booking_request": {
+        "type": "object",
+        "properties": {
+          "partner_reference": {
+            "type": "string",
+            "description": "Available as a reference field."
+          },
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store this booking is for."
+          },
+          "pickup": {
+            "type": "object",
+            "properties": {
+              "pickup_instructions": {
+                "type": "string",
+                "description": "E.g. 'Driver should make themself known to staff.'"
+              },
+              "requested_pickup_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Requested pickup time in iso8601 format.\nOne of requested_pickup_time, pickup_time_not_before and requested_dropoff_time is required.\n"
+              },
+              "pickup_time_not_before": {
+                "type": "string",
+                "format": "date-time",
+                "description": "The earliest pickup time in iso8601 format."
+              }
+            },
+            "additionalProperties": false
+          },
+          "dropoff": {
+            "type": "object",
+            "properties": {
+              "dropoff_instructions": {
+                "type": "string",
+                "description": "E.g 'Up the driveway beside the shop. The house with the blue door.'"
+              },
+              "authority_to_leave": {
+                "type": "boolean",
+                "description": "Used for contactless deliveries."
+              },
+              "requested_dropoff_time": {
+                "type": "string",
+                "format": "date-time",
+                "description": "Requested dropoff time in iso8601 format."
+              },
+              "verifications_requested": {
+                "$ref": "#/components/schemas/verifications"
+              },
+              "verification_code": {
+                "type": "string",
+                "pattern": "^\\d{4}$",
+                "description": "The numeric code the customer needs to give if the verification_code mode is enabled. Must be a 4-digit string. If not provided, a random code will be generated."
+              },
+              "address": {
+                "oneOf": [
+                  {
+                    "$ref": "#/components/schemas/address_request_using_street_number_and_street"
+                  },
+                  {
+                    "$ref": "#/components/schemas/address_request_using_street_address"
+                  },
+                  {
+                    "$ref": "#/components/schemas/address_request_using_single_line"
+                  }
+                ]
+              },
+              "contact_details": {
+                "$ref": "#/components/schemas/contact_details"
+              }
+            },
+            "required": ["address", "contact_details"],
+            "additionalProperties": false
+          },
+          "manifest": {
+            "type": "object",
+            "properties": {
+              "package_contains_alcohol": {
+                "type": "boolean"
+              },
+              "package_contains_pharmaceuticals": {
+                "type": "boolean"
+              }
+            }
+          },
+          "undeliverable_action": {
+            "type": "string",
+            "enum": ["leave_at_premise", "return_to_pickup", "dispose"],
+            "description": "What should the driver if they cannot complete a delivery. If not specified, the default is 'leave_at_premise'"
+          }
+        },
+        "required": [
+          "partner_reference",
+          "partner_store_id",
+          "pickup",
+          "dropoff"
+        ],
+        "additionalProperties": false
+      },
+      "verifications": {
+        "type": "array",
+        "items": {
+          "type": "string",
+          "enum": [
+            "age_verification",
+            "proof_of_delivery_photo",
+            "verification_code"
+          ]
+        }
+      },
+      "booking_response": {
+        "type": "object",
+        "properties": {
+          "partner_reference": {
+            "type": "string",
+            "description": "The same value as used in the create booking request."
+          },
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store this booking is for."
+          },
+          "status": {
+            "type": "string",
+            "description": "One of: 'pending', 'created', 'not_assigned', 'assigned', 'pickup_enroute', 'pickup_arrived',\n'pickup_complete', 'dropoff_enroute', 'dropoff_arrived', 'dropoff_complete', 'cancelled',\n'return_in_progress', 'returned'\n"
+          },
+          "driver": {
+            "type": "object",
+            "properties": {
+              "latitude": {
+                "type": "number"
+              },
+              "longitude": {
+                "type": "number"
+              },
+              "name": {
+                "type": "string"
+              },
+              "contact_number": {
+                "type": "string",
+                "description": "E.164+ format"
+              },
+              "profile_image_url": {
+                "type": "string"
+              }
+            },
+            "required": ["name", "contact_number", "profile_image_url"]
+          },
+          "id": {
+            "type": "string",
+            "description": "Unique ID of the booking."
+          },
+          "booking_details": {
+            "type": "object",
+            "properties": {
+              "delivery_fee_in_cents": {
+                "type": "integer",
+                "description": "Total booking cost in cents."
+              },
+              "booking_created_at": {
+                "type": "string",
+                "format": "date-time",
+                "description": "When the booking was created in iso8601 format."
+              },
+              "estimated_pickup_time": {
+                "type": "string",
+                "description": "Estimated pickup time in iso8601 format."
+              },
+              "estimated_dropoff_time": {
+                "type": "string",
+                "description": "Estimated dropoff time in iso8601 format."
+              },
+              "customer_tracking_url": {
+                "type": "string",
+                "description": "A link that can be provided to a customer for tracking information"
+              }
+            },
+            "required": [
+              "delivery_fee_in_cents",
+              "booking_created_at",
+              "estimated_pickup_time",
+              "estimated_dropoff_time",
+              "customer_tracking_url"
+            ],
+            "additionalProperties": false
+          },
+          "pickup": {
+            "type": "object",
+            "properties": {
+              "pickup_instructions": {
+                "type": "string",
+                "description": "E.g. 'Driver should make themself known to staff.'"
+              },
+              "requested_pickup_time": {
+                "type": "string",
+                "description": "Requested pickup time in iso8601 format."
+              },
+              "pickup_time_not_before": {
+                "type": "string",
+                "description": "The earliest pickup time in iso8601 format."
+              },
+              "eta_to_pickup_in_seconds": {
+                "type": ["integer", "null"],
+                "description": "Estimated seconds until the driver arrives at pickup"
+              },
+              "address": {
+                "type": "object",
+                "properties": {
+                  "full_address": {
+                    "type": "string",
+                    "description": "E.g 'Flat 1, 12 Somewhere Avenue, Te Aro 6011'"
+                  },
+                  "latitude": {
+                    "type": "string",
+                    "description": "E.g '-40.900558'"
+                  },
+                  "longitude": {
+                    "type": "string",
+                    "description": "E.g '174.744080'"
+                  }
+                },
+                "required": ["full_address", "latitude", "longitude"],
+                "additionalProperties": false
+              },
+              "contact_details": {
+                "$ref": "#/components/schemas/contact_details"
+              }
+            },
+            "required": ["address"],
+            "additionalProperties": false
+          },
+          "dropoff": {
+            "type": "object",
+            "properties": {
+              "dropoff_instructions": {
+                "type": "string",
+                "description": "E.g 'Up the driveway beside the shop. The house with the blue door.'"
+              },
+              "authority_to_leave": {
+                "type": "boolean",
+                "description": "Used for contactless deliveries."
+              },
+              "requested_dropoff_time": {
+                "type": "string",
+                "description": "Requested dropoff time in iso8601 format."
+              },
+              "eta_to_dropoff_in_seconds": {
+                "type": ["integer", "null"],
+                "description": "Estimated seconds until the driver arrives at dropoff"
+              },
+              "address": {
+                "$ref": "#/components/schemas/address_response"
+              },
+              "contact_details": {
+                "$ref": "#/components/schemas/contact_details"
+              },
+              "verifications": {
+                "type": "object",
+                "properties": {
+                  "proof_of_delivery_photos": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "format": "uri"
+                    }
+                  },
+                  "age_verified": {
+                    "type": "object",
+                    "properties": {
+                      "enabled": { "type": "boolean" },
+                      "verified": { "type": "boolean" }
+                    },
+                    "required": ["enabled", "verified"]
+                  },
+                  "verification_code": {
+                    "type": "string",
+                    "pattern": "^\\d{4}$"
+                  }
+                }
+              }
+            },
+            "required": ["address", "contact_details"],
+            "additionalProperties": false
+          },
+          "undeliverable_action": {
+            "type": "string",
+            "enum": ["leave_at_premise", "return_to_pickup", "dispose"],
+            "description": "What should the driver if they cannot complete a delivery. If not specified, the default is 'leave_at_premise'"
+          },
+          "manifest": {
+            "type": "object",
+            "properties": {
+              "package_contains_alcohol": {
+                "type": "boolean"
+              },
+              "package_contains_pharmaceuticals": {
+                "type": "boolean"
+              }
+            },
+            "required": [
+              "package_contains_alcohol",
+              "package_contains_pharmaceuticals"
+            ]
+          }
+        },
+        "required": [
+          "partner_reference",
+          "partner_store_id",
+          "status",
+          "id",
+          "booking_details",
+          "pickup",
+          "dropoff",
+          "undeliverable_action",
+          "manifest"
+        ]
+      },
+      "store_info_response": {
+        "type": "object",
+        "properties": {
+          "partner_store_id": {
+            "type": "string",
+            "description": "The ID of the store"
+          },
+          "name": {
+            "type": "string",
+            "description": "The name of the store"
+          },
+          "address": {
+            "type": "string",
+            "description": "The store location address"
+          },
+          "contact_number": {
+            "type": "string",
+            "description": "The store contact number"
+          }
+        },
+        "required": ["partner_store_id", "name"]
+      },
+      "error": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "array",
+            "items": {
+              "type": "string"
+            }
+          }
+        },
+        "required": ["errors"],
+        "additionalProperties": false
+      }
+    }
+  }
+}

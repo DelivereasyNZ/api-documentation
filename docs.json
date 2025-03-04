@@ -3,9 +3,8 @@
   "theme": "willow",
   "name": "Delivereasy",
   "colors": {
-    "primary": "#16A34A",
-    "light": "#07C983",
-    "dark": "#15803D"
+    "primary": "#EA482C",
+    "light": "#F6CC12"
   },
   "favicon": "/favicon.svg",
   "navigation": {
@@ -15,59 +14,89 @@
         "groups": [
           {
             "group": "Get Started",
-            "pages": [
-              "introduction",
-              "quickstart",
-              "development"
-            ]
-          },
-          {
-            "group": "Essentials",
-            "pages": [
-              "essentials/markdown",
-              "essentials/code",
-              "essentials/images",
-              "essentials/settings",
-              "essentials/navigation",
-              "essentials/reusable-snippets"
-            ]
+            "pages": ["introduction"]
           }
         ]
       },
       {
         "tab": "API Reference",
-        "groups": [
+        "versions": [
           {
-            "group": "API Documentation",
-            "pages": [
-              "api-reference/introduction"
+            "version": "2025-01-01",
+            "groups": [
+              {
+                "group": "Welcome",
+                "pages": ["api-reference/introduction"]
+              },
+              {
+                "group": "Stores",
+                "pages": [
+                  "api-reference/2025-01-01/stores/list-store-information"
+                ]
+              },
+              {
+                "group": "Estimates",
+                "pages": [
+                  "api-reference/2025-01-01/estimates/create-an-estimate"
+                ]
+              },
+              {
+                "group": "Bookings",
+                "pages": [
+                  "api-reference/2025-01-01/bookings/create-a-booking",
+                  "api-reference/2025-01-01/bookings/retrieve-a-booking",
+                  "api-reference/2025-01-01/bookings/cancels-a-booking"
+                ]
+              }
             ]
           },
           {
-            "group": "Examples",
-            "pages": [
-              "api-reference/endpoint/get",
-              "api-reference/endpoint/create",
-              "api-reference/endpoint/delete",
-              "api-reference/endpoint/webhook"
+            "version": "2024-05-01",
+            "openapi": "api-reference/2024-05-01/2024-05-01.json",
+            "groups": [
+              {
+                "group": "Welcome",
+                "pages": ["api-reference/introduction"]
+              },
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/2024-05-01/lastmile/get_store_info",
+                  "api-reference/2024-05-01/lastmile/get_booking_details",
+                  "api-reference/2024-05-01/lastmile/create_estimate",
+                  "api-reference/2024-05-01/lastmile/create_booking",
+                  "api-reference/2024-05-01/lastmile/cancel_booking"
+                ]
+              }
+            ]
+          },
+          {
+            "version": "v2023-11-01",
+            "openapi": "api-reference/2023-11-01/2023-11-01.json",
+            "groups": [
+              {
+                "group": "Welcome",
+                "pages": ["api-reference/introduction"]
+              },
+              {
+                "group": "API Documentation",
+                "pages": [
+                  "api-reference/2023-11-01/lastmile/get_store_info",
+                  "api-reference/2023-11-01/lastmile/get_booking_details",
+                  "api-reference/2023-11-01/lastmile/create_estimate",
+                  "api-reference/2023-11-01/lastmile/create_booking",
+                  "api-reference/2023-11-01/lastmile/cancel_booking"
+                ]
+              }
             ]
           }
         ]
       }
-    ],
-    "global": {
-      "anchors": [
-        {
-          "anchor": "Documentation",
-          "href": "https://mintlify.com/docs",
-          "icon": "book-open-cover"
-        }
-      ]
-    }
+    ]
   },
   "logo": {
-    "light": "/logo/light.svg",
-    "dark": "/logo/dark.svg"
+    "light": "/logo/logo.svg",
+    "dark": "/logo/logo.svg"
   },
   "navbar": {
     "links": [
@@ -78,8 +107,8 @@
     ],
     "primary": {
       "type": "button",
-      "label": "Dashboard",
-      "href": "https://dashboard.mintlify.com"
+      "label": "Portal",
+      "href": "https://partner.delivereasy.co.nz"
     }
   },
   "footer": {
