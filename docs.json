@@ -1,97 +1,100 @@
 {
-  "$schema": "https://mintlify.com/docs.json",
-  "theme": "willow",
-  "name": "Delivereasy",
-  "colors": {
-    "primary": "#EA482C",
-    "light": "#F6CC12"
-  },
-  "favicon": "/favicon.svg",
-  "navigation": {
-    "anchors": [
-      {
-        "anchor": "Guides",
-        "icon": "book-open",
-        "pages": [
-          {
-            "group": "Get Started",
-            "pages": ["introduction"]
-          }
-        ]
-      },
-      {
-        "anchor": "API Reference",
-        "icon": "brackets-curly",
-        "versions": [
-          {
-            "version": "2025-01-01",
-            "default": true,
-            "groups": [
-              {
-                "group": "Welcome",
-                "pages": ["api-reference/introduction"]
-              },
-              {
-                "group": "Stores",
+    "$schema": "https://mintlify.com/docs.json",
+    "theme": "willow",
+    "name": "Delivereasy",
+    "colors": {
+        "primary": "#EA482C",
+        "light": "#F6CC12"
+    },
+    "favicon": "/favicon.svg",
+    "navigation": {
+        "anchors": [
+            {
+                "anchor": "Guides",
+                "icon": "book-open",
                 "pages": [
-                  "api-reference/2025-01-01/stores/list-store-information"
+                    {
+                        "group": "Get Started",
+                        "pages": ["introduction"]
+                    }
                 ]
-              },
-              {
-                "group": "Estimates",
-                "pages": [
-                  "api-reference/2025-01-01/estimates/create-an-estimate"
+            },
+            {
+                "anchor": "API Reference",
+                "icon": "brackets-curly",
+                "versions": [
+                    {
+                        "version": "2025-01-01",
+                        "default": true,
+                        "groups": [
+                            {
+                                "group": "Welcome",
+                                "pages": [
+                                    "api-reference/introduction",
+                                    "api-reference/2025-01-01/changes"
+                                ]
+                            },
+                            {
+                                "group": "Stores",
+                                "pages": [
+                                    "api-reference/2025-01-01/stores/list-store-information"
+                                ]
+                            },
+                            {
+                                "group": "Estimates",
+                                "pages": [
+                                    "api-reference/2025-01-01/estimates/create-an-estimate"
+                                ]
+                            },
+                            {
+                                "group": "Bookings",
+                                "pages": [
+                                    "api-reference/2025-01-01/bookings/create-a-booking",
+                                    "api-reference/2025-01-01/bookings/retrieve-a-booking",
+                                    "api-reference/2025-01-01/bookings/cancels-a-booking"
+                                ]
+                            }
+                        ]
+                    },
+                    {
+                        "version": "2024-05-01",
+                        "openapi": {
+                            "source": "/api-reference/2024-05-01/api.json",
+                            "directory": "api-reference/2024-05-01"
+                        }
+                    },
+                    {
+                        "version": "2023-11-01",
+                        "openapi": {
+                            "source": "/api-reference/2023-11-01/api.json",
+                            "directory": "api-reference/2023-11-01"
+                        }
+                    }
                 ]
-              },
-              {
-                "group": "Bookings",
-                "pages": [
-                  "api-reference/2025-01-01/bookings/create-a-booking",
-                  "api-reference/2025-01-01/bookings/retrieve-a-booking",
-                  "api-reference/2025-01-01/bookings/cancels-a-booking"
-                ]
-              }
-            ]
-          },
-          {
-            "version": "2024-05-01",
-            "openapi": {
-              "source": "/api-reference/2024-05-01/api.json",
-              "directory": "api-reference/2024-05-01"
             }
-          },
-          {
-            "version": "2023-11-01",
-            "openapi": {
-              "source": "/api-reference/2023-11-01/api.json",
-              "directory": "api-reference/2023-11-01"
-            }
-          }
         ]
-      }
-    ]
-  },
-  "logo": {
-    "light": "/logo/logo.svg",
-    "dark": "/logo/logo.svg"
-  },
-  "navbar": {
-    "links": [
-      {
-        "label": "Support",
-        "href": "mailto:tech@delivereasy.co.nz"
-      }
-    ],
-    "primary": {
-      "type": "button",
-      "label": "Portal",
-      "href": "https://partner.delivereasy.co.nz"
+    },
+    "logo": {
+        "light": "/logo/logo.svg",
+        "dark": "/logo/logo.svg"
+    },
+    "navbar": {
+        "links": [
+            {
+                "label": "Support",
+                "href": "mailto:tech@delivereasy.co.nz"
+            }
+        ],
+        "primary": {
+            "type": "button",
+            "label": "Portal",
+            "href": "https://partner.delivereasy.co.nz"
+        }
+    },
+    "footer": {
+        "socials": {
+            "github": "https://github.com/delivereasynz",
+            "linkedin": "https://linkedin.com/company/delivereasy"
+        }
     }
-  },
-  "footer": {
-    "socials": {
-      "github": "https://github.com/delivereasynz",
-      "linkedin": "https://linkedin.com/company/delivereasy"
-    }
-  }
 }
